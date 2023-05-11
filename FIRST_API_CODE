@@ -1,0 +1,27 @@
+API CODE TUTORIAL- https://www.dataquest.io/blog/python-api-tutorial/
+import requests
+import json
+
+def jprint(obj):
+    text=json.dumps(obj,sort_keys=True,indent=4)
+    print(text)
+
+# parameters={"lat":40.71,
+            # "lon":-74}
+response=requests.get("http://api.open-notify.org/astros.json")
+# response=requests.get("https://api.open-notify.org/iss-pass.json?lat=40.71&lon;=-74")
+# response=requests.get("https://api.open-notify.org/iss-pass.json",params=parameters)
+
+name_astraunauts=response.json()['people']
+# number_astro=response.json()['number']
+print(response.status_code);
+# print(response.json())
+# jprint(response.json())
+jprint(name_astraunauts)
+# jprint(number_astro)
+# name_of_atsro=[]
+# for d in name_astraunauts:
+#     astro_name=d['name']
+#     name_of_atsro.append(astro_name)
+
+# print(name_of_atsro)
